@@ -7,13 +7,13 @@ import { format } from 'date-fns'
 import { th } from 'date-fns/locale'
 
 const STATUS_CLASSES: Record<string, string> = {
-  active: 'bg-green-100 text-green-800',
-  inactive: 'bg-gray-100 text-gray-600',
+  active:   'bg-green-100 text-green-800',
+  inactive: 'bg-blue-100 text-blue-700',
   deceased: 'bg-red-100 text-red-800',
 }
 const STATUS_LABELS: Record<string, string> = {
-  active: 'ใช้งาน',
-  inactive: 'ไม่ใช้งาน',
+  active:   'ประจำวัด',
+  inactive: 'ย้ายออก',
   deceased: 'มรณภาพ',
 }
 const CLAIM_STATUS: Record<string, { label: string; cls: string }> = {

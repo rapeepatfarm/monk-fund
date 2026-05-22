@@ -225,8 +225,8 @@ export function MembershipsList({ members, currentYear, stats, temples }: Props)
                           มรณภาพ
                         </span>
                       ) : isInactive ? (
-                        <span className="inline-block px-2 py-0.5 bg-gray-100 text-gray-500 text-xs rounded-full font-medium">
-                          ไม่ใช้งาน
+                        <span className="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">
+                          ย้ายออก
                         </span>
                       ) : isPaid ? (
                         <div className="space-y-0.5">

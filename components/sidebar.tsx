@@ -53,7 +53,7 @@ export function Sidebar({ profile }: SidebarProps) {
             🏛️
           </div>
           <div className="min-w-0">
-            <p className="font-bold text-white text-sm leading-tight">กองทุนพระอาพาธ</p>
+            <p className="font-bold text-white text-sm leading-tight">กองบุญพระอาพาธ</p>
             <p className="text-amber-300 text-xs truncate">
               {profile?.provinces?.name ?? 'ทุกจังหวัด'}
             </p>
@@ -147,7 +147,7 @@ export function Sidebar({ profile }: SidebarProps) {
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
-        <span className="text-white font-bold text-sm">กองทุนพระอาพาธ</span>
+        <span className="text-white font-bold text-sm">กองบุญพระอาพาธ</span>
       </div>
 
       {/* Mobile overlay */}

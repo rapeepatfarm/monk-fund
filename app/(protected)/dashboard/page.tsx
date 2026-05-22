@@ -214,9 +214,9 @@ export default async function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {[
-              { label: 'ใช้งาน (Active)',    count: activeStatus,   total: totalMembers, color: 'bg-green-500' },
-              { label: 'ไม่ใช้งาน',          count: inactiveStatus, total: totalMembers, color: 'bg-gray-400' },
-              { label: 'มรณภาพ',             count: deceasedStatus, total: totalMembers, color: 'bg-red-500' },
+              { label: 'ประจำวัด',  count: activeStatus,   total: totalMembers, color: 'bg-green-500' },
+              { label: 'ย้ายออก',  count: inactiveStatus, total: totalMembers, color: 'bg-blue-400' },
+              { label: 'มรณภาพ',  count: deceasedStatus, total: totalMembers, color: 'bg-red-500' },
             ].map(({ label, count, total, color }) => {
               const pct = total > 0 ? Math.round((count / total) * 100) : 0
               return (

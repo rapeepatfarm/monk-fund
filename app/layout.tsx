@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "กองทุนพระอาพาธ",
+  title: "กองบุญพระอาพาธ",
   description: "ระบบบริหารจัดการกองทุนสุขภาพพระสงฆ์และสามเณร",
 };
 

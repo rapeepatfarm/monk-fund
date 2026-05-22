@@ -26,6 +26,9 @@ export default async function TemplesPage() {
   const { data: temples } = await templesQuery
   const { data: provinces } = await supabase.from('provinces').select('id, name').order('name')
 
+  // หาชื่อจังหวัดของ admin คนนี้ (ใช้สำหรับ cascade dropdown ในฝั่ง client)
+  const defaultProvinceName = provinces?.find(p => p.id === profile?.province_id)?.name ?? ''
+
   return (
     <div className="p-6 max-w-3xl mx-auto space-y-4">
       <div>
@@ -36,6 +39,7 @@ export default async function TemplesPage() {
         temples={temples ?? []}
         provinces={provinces ?? []}
         defaultProvinceId={profile?.province_id ?? ''}
+        defaultProvinceName={defaultProvinceName}
         isSuperAdmin={profile?.role === 'super_admin'}
       />
     </div>

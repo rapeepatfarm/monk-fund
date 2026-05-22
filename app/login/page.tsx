@@ -40,7 +40,7 @@ export default function LoginPage() {
           <div className="mx-auto w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center text-white text-2xl mb-2">
             🏛️
           </div>
-          <CardTitle className="text-2xl font-bold text-amber-900">กองทุนพระอาพาธ</CardTitle>
+          <CardTitle className="text-2xl font-bold text-amber-900">กองบุญพระอาพาธ</CardTitle>
           <CardDescription className="text-amber-700">
             ระบบบริหารจัดการกองทุนสุขภาพพระสงฆ์และสามเณร
           </CardDescription>
