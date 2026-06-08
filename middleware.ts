@@ -23,17 +23,21 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  const { data: { user } } = await supabase.auth.getUser()
+  // ใช้ getSession() แทน getUser() ใน middleware
+  // เหตุผล: getUser() ทำ network request ไป Supabase ทุก request → timeout บน Vercel
+  // getSession() อ่านจาก cookie โดยตรง (fast, no network) — ปลอดภัยพอสำหรับ redirect guard
+  // การตรวจสอบ auth จริงๆ ทำใน Server Components ด้วย getUser() แทน
+  const { data: { session } } = await supabase.auth.getSession()
 
   const { pathname } = request.nextUrl
 
-  if (!user && pathname !== '/login') {
+  if (!session && pathname !== '/login') {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
   }
 
-  if (user && pathname === '/login') {
+  if (session && pathname === '/login') {
     const url = request.nextUrl.clone()
     url.pathname = '/dashboard'
     return NextResponse.redirect(url)
@@ -43,5 +47,8 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
+  // จำกัด matcher ให้รันเฉพาะหน้าที่จำเป็น (ไม่รัน API routes ที่ไม่เกี่ยวข้อง)
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|api/|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
 }
